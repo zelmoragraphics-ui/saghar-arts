@@ -1,0 +1,7 @@
+{
+  "name": "SAGHAR ARTS",
+  "description": "Commercial business management software for SAGHAR ARTS - Sign-board, printing, 3D design and advertising business management with bilingual English/Urdu support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
