@@ -91,7 +91,7 @@ const MainLayout: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
+    <div className="min-h-screen bg-[#080d1a] text-slate-100 flex flex-col font-sans selection:bg-amber-600 selection:text-white">
       {/* Top Navigation Bar (Hidden when printing invoice) */}
       <Header onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
 

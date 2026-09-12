@@ -106,13 +106,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   return (
     <div className="space-y-6 animate-in fade-in duration-150">
       {/* Top Banner / Welcome & Quick Actions */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-900 border border-slate-800 p-5 rounded-2xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#0b1429] border border-amber-900/30 p-5 rounded-2xl shadow-lg shadow-black/40">
         <div>
           <div className="flex items-center gap-2">
             <h1 className="text-xl sm:text-2xl font-black text-white tracking-tight">
               {settings.businessName}
             </h1>
-            <span className="px-2 py-0.5 text-xs font-bold rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+            <span className="px-2.5 py-0.5 text-xs font-bold rounded-full bg-blue-950/80 text-amber-300 border border-amber-700/50 shadow-xs">
               Live Studio
             </span>
           </div>
@@ -126,7 +126,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={onOpenNewOrderModal}
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs transition shadow-md shadow-amber-500/20 cursor-pointer"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:from-amber-500 hover:to-amber-700 text-white font-black text-xs transition shadow-lg shadow-amber-950/60 border border-amber-500/40 cursor-pointer"
           >
             <Plus className="w-4 h-4 stroke-[3]" />
             <span>{t('newOrder')}</span>
@@ -134,17 +134,17 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
           <button
             onClick={onOpenNewPurchaseModal}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-xs transition cursor-pointer"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#0d172e] hover:bg-[#142347] text-blue-200 border border-blue-900/60 hover:border-amber-600/40 font-bold text-xs transition cursor-pointer"
           >
-            <Plus className="w-3.5 h-3.5" />
+            <Plus className="w-3.5 h-3.5 text-blue-400" />
             <span>{t('newPurchase')}</span>
           </button>
 
           <button
             onClick={onOpenNewExpenseModal}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-xs transition cursor-pointer"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#0d172e] hover:bg-[#142347] text-amber-200 border border-amber-900/40 hover:border-amber-600/40 font-bold text-xs transition cursor-pointer"
           >
-            <Plus className="w-3.5 h-3.5" />
+            <Plus className="w-3.5 h-3.5 text-amber-400" />
             <span>{t('newExpense')}</span>
           </button>
         </div>
@@ -152,9 +152,9 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
       {/* Low Stock Warning Banner if any items are critical */}
       {lowStockItems.length > 0 && (
-        <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between">
+        <div className="p-4 rounded-2xl bg-amber-950/30 border border-amber-700/50 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-amber-500/20 rounded-xl text-amber-400">
+            <div className="p-2 bg-amber-600/20 rounded-xl text-amber-400">
               <AlertTriangle className="w-5 h-5" />
             </div>
             <div>
@@ -171,20 +171,20 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           </div>
           <button
             onClick={() => onNavigate('inventory')}
-            className="px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-bold transition border border-amber-500/30 whitespace-nowrap"
+            className="px-3 py-1.5 rounded-lg bg-amber-600/20 hover:bg-amber-600/30 text-amber-300 text-xs font-bold transition border border-amber-500/40 whitespace-nowrap cursor-pointer"
           >
             {language === 'ur' ? 'اسٹاک دیکھیں' : 'View Stock'}
           </button>
         </div>
       )}
 
-      {/* Primary Financial Metric Cards (4 Cards) with Vivid Multi-Color Aesthetic */}
+      {/* Primary Financial Metric Cards (4 Cards) in Premium Blue & Brown Palette */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-        {/* Today's Sales - Golden Amber */}
-        <div className="bg-gradient-to-br from-amber-500/15 via-slate-900 to-amber-950/40 border border-amber-500/40 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-amber-400 hover:shadow-lg hover:shadow-amber-500/10 transition">
+        {/* Today's Sales - Rich Cognac Brown */}
+        <div className="bg-gradient-to-br from-amber-950/40 via-[#0d172e] to-amber-900/30 border border-amber-700/50 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-amber-400 hover:shadow-lg hover:shadow-amber-950/40 transition">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-bold text-amber-200/90 uppercase tracking-wide">{t('todaySales')}</span>
-            <div className="p-2.5 bg-gradient-to-br from-amber-400 to-amber-600 text-slate-950 font-black rounded-xl shadow-md shadow-amber-500/30">
+            <div className="p-2.5 bg-gradient-to-br from-amber-600 to-amber-800 text-white font-black rounded-xl shadow-md shadow-amber-950/50 border border-amber-500/40">
               <ShoppingCart className="w-4 h-4" />
             </div>
           </div>
@@ -192,69 +192,69 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             {settings.currency} {todaySales.toLocaleString()}
           </div>
           <div className="mt-2 flex items-center gap-1.5 text-[11px] text-slate-300">
-            <span className="text-amber-400 font-bold bg-amber-500/20 px-1.5 py-0.5 rounded">{todayOrders.length}</span>
+            <span className="text-amber-300 font-bold bg-amber-600/20 px-1.5 py-0.5 rounded border border-amber-500/30">{todayOrders.length}</span>
             <span>{language === 'ur' ? 'آج کے آرڈرز' : 'orders today'}</span>
           </div>
         </div>
 
-        {/* Today's Purchases - Electric Sky / Cyan */}
-        <div className="bg-gradient-to-br from-sky-500/15 via-slate-900 to-cyan-950/40 border border-sky-500/40 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-sky-400 hover:shadow-lg hover:shadow-sky-500/10 transition">
+        {/* Today's Purchases - Royal Sapphire Blue */}
+        <div className="bg-gradient-to-br from-blue-950/50 via-[#0d172e] to-blue-900/30 border border-blue-600/50 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-blue-400 hover:shadow-lg hover:shadow-blue-950/40 transition">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-sky-200/90 uppercase tracking-wide">{t('todayPurchases')}</span>
-            <div className="p-2.5 bg-gradient-to-br from-sky-400 to-cyan-500 text-slate-950 font-black rounded-xl shadow-md shadow-sky-500/30">
+            <span className="text-xs font-bold text-blue-200/90 uppercase tracking-wide">{t('todayPurchases')}</span>
+            <div className="p-2.5 bg-gradient-to-br from-blue-600 to-blue-800 text-white font-black rounded-xl shadow-md shadow-blue-950/50 border border-blue-400/40">
               <Truck className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-lg sm:text-2xl font-black text-sky-300 tracking-tight">
+          <div className="text-lg sm:text-2xl font-black text-blue-300 tracking-tight">
             {settings.currency} {todayPurchases.toLocaleString()}
           </div>
           <div className="mt-2 flex items-center gap-1.5 text-[11px] text-slate-300">
-            <span className="text-sky-400 font-bold bg-sky-500/20 px-1.5 py-0.5 rounded">{todayPurchasesList.length}</span>
+            <span className="text-blue-300 font-bold bg-blue-600/20 px-1.5 py-0.5 rounded border border-blue-500/30">{todayPurchasesList.length}</span>
             <span>{language === 'ur' ? 'خریداری انوائسز' : 'invoices recorded'}</span>
           </div>
         </div>
 
-        {/* Total Expenses - Vivid Coral / Rose */}
-        <div className="bg-gradient-to-br from-rose-500/15 via-slate-900 to-pink-950/40 border border-rose-500/40 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-rose-400 hover:shadow-lg hover:shadow-rose-500/10 transition">
+        {/* Total Expenses - Saddle Leather & Espresso Brown */}
+        <div className="bg-gradient-to-br from-[#2a170d]/50 via-[#0d172e] to-amber-950/40 border border-amber-800/50 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-amber-500 hover:shadow-lg hover:shadow-amber-950/40 transition">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-rose-200/90 uppercase tracking-wide">{t('todayExpenses')}</span>
-            <div className="p-2.5 bg-gradient-to-br from-rose-400 to-rose-600 text-white font-black rounded-xl shadow-md shadow-rose-500/30">
+            <span className="text-xs font-bold text-amber-200/90 uppercase tracking-wide">{t('todayExpenses')}</span>
+            <div className="p-2.5 bg-gradient-to-br from-amber-700 to-amber-900 text-amber-100 font-black rounded-xl shadow-md shadow-amber-950/50 border border-amber-600/40">
               <DollarSign className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-lg sm:text-2xl font-black text-rose-300 tracking-tight">
+          <div className="text-lg sm:text-2xl font-black text-amber-300 tracking-tight">
             {settings.currency} {todayExpenses.toLocaleString()}
           </div>
           <div className="mt-2 flex items-center gap-1.5 text-[11px] text-slate-300">
             <span>{language === 'ur' ? 'کل اخراجات:' : 'Total OpEx:'}</span>
-            <span className="text-rose-400 font-bold">{settings.currency} {totalExpenses.toLocaleString()}</span>
+            <span className="text-amber-400 font-bold">{settings.currency} {totalExpenses.toLocaleString()}</span>
           </div>
         </div>
 
-        {/* Today's Profit - Luminous Mint / Emerald */}
-        <div className="bg-gradient-to-br from-emerald-500/15 via-slate-900 to-teal-950/40 border border-emerald-500/40 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-emerald-400 hover:shadow-lg hover:shadow-emerald-500/10 transition">
+        {/* Today's Profit - Luminous Amber & Sapphire Accent */}
+        <div className="bg-gradient-to-br from-blue-950/40 via-[#0d172e] to-amber-900/30 border border-amber-600/50 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-amber-400 hover:shadow-lg hover:shadow-amber-950/40 transition">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-emerald-200/90 uppercase tracking-wide">{t('todayProfit')}</span>
-            <div className="p-2.5 bg-gradient-to-br from-emerald-400 to-teal-500 text-slate-950 font-black rounded-xl shadow-md shadow-emerald-500/30">
+            <span className="text-xs font-bold text-amber-200 uppercase tracking-wide">{t('todayProfit')}</span>
+            <div className="p-2.5 bg-gradient-to-br from-amber-600 via-amber-700 to-blue-700 text-white font-black rounded-xl shadow-md shadow-amber-950/50 border border-amber-400/40">
               <TrendingUp className="w-4 h-4" />
             </div>
           </div>
-          <div className={`text-lg sm:text-2xl font-black tracking-tight ${todayProfit >= 0 ? 'text-emerald-300' : 'text-rose-400'}`}>
+          <div className={`text-lg sm:text-2xl font-black tracking-tight ${todayProfit >= 0 ? 'text-amber-300' : 'text-rose-400'}`}>
             {settings.currency} {todayProfit.toLocaleString()}
           </div>
           <div className="mt-2 flex items-center gap-1.5 text-[11px] text-slate-300">
             <span>{language === 'ur' ? 'کل خالص منافع:' : 'All Net Profit:'}</span>
-            <span className="text-emerald-400 font-bold">{settings.currency} {totalNetProfit.toLocaleString()}</span>
+            <span className="text-blue-300 font-bold">{settings.currency} {totalNetProfit.toLocaleString()}</span>
           </div>
         </div>
       </div>
 
-      {/* Secondary Quick Metrics Row (6 Colorful Cards) */}
+      {/* Secondary Quick Metrics Row in Harmonic Blue & Brown Tones */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
         {/* Pending Payments */}
         <div 
           onClick={() => onNavigate('customers')} 
-          className="bg-gradient-to-br from-amber-500/10 via-slate-900 to-slate-900 border border-amber-500/30 hover:border-amber-400 p-3.5 rounded-xl cursor-pointer transition shadow-xs hover:shadow-md hover:shadow-amber-500/10"
+          className="bg-gradient-to-br from-amber-950/30 via-[#0b1429] to-[#0b1429] border border-amber-800/40 hover:border-amber-500 p-3.5 rounded-xl cursor-pointer transition shadow-xs hover:shadow-md hover:shadow-amber-950/30"
         >
           <div className="text-[11px] text-amber-200/80 font-bold truncate">{t('pendingPayments')}</div>
           <div className="text-base sm:text-lg font-black text-amber-400 mt-1">
@@ -266,10 +266,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         {/* Supplier Payables */}
         <div 
           onClick={() => onNavigate('suppliers')} 
-          className="bg-gradient-to-br from-sky-500/10 via-slate-900 to-slate-900 border border-sky-500/30 hover:border-sky-400 p-3.5 rounded-xl cursor-pointer transition shadow-xs hover:shadow-md hover:shadow-sky-500/10"
+          className="bg-gradient-to-br from-blue-950/40 via-[#0b1429] to-[#0b1429] border border-blue-800/40 hover:border-blue-400 p-3.5 rounded-xl cursor-pointer transition shadow-xs hover:shadow-md hover:shadow-blue-950/30"
         >
-          <div className="text-[11px] text-sky-200/80 font-bold truncate">{t('supplierPayables')}</div>
-          <div className="text-base sm:text-lg font-black text-sky-400 mt-1">
+          <div className="text-[11px] text-blue-200/80 font-bold truncate">{t('supplierPayables')}</div>
+          <div className="text-base sm:text-lg font-black text-blue-400 mt-1">
             {settings.currency} {totalSupplierPayables.toLocaleString()}
           </div>
           <div className="text-[10px] text-slate-400 mt-0.5">{suppliers.length} {language === 'ur' ? 'سپلائرز' : 'suppliers'}</div>
@@ -278,10 +278,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         {/* Total Stock */}
         <div 
           onClick={() => onNavigate('inventory')} 
-          className="bg-gradient-to-br from-indigo-500/10 via-slate-900 to-slate-900 border border-indigo-500/30 hover:border-indigo-400 p-3.5 rounded-xl cursor-pointer transition shadow-xs hover:shadow-md hover:shadow-indigo-500/10"
+          className="bg-gradient-to-br from-amber-950/20 via-[#0b1429] to-[#0b1429] border border-amber-900/30 hover:border-amber-600 p-3.5 rounded-xl cursor-pointer transition shadow-xs hover:shadow-md"
         >
-          <div className="text-[11px] text-indigo-200/80 font-bold truncate">{t('totalStockItems')}</div>
-          <div className="text-base sm:text-lg font-black text-indigo-300 mt-1">
+          <div className="text-[11px] text-amber-200/80 font-bold truncate">{t('totalStockItems')}</div>
+          <div className="text-base sm:text-lg font-black text-amber-300 mt-1">
             {totalStockCount.toLocaleString()} <span className="text-xs text-slate-400 font-normal">units</span>
           </div>
           <div className="text-[10px] text-slate-400 mt-0.5">{materials.length} {language === 'ur' ? 'میٹریلز' : 'materials'}</div>
@@ -292,12 +292,12 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           onClick={() => onNavigate('inventory')} 
           className={`border p-3.5 rounded-xl cursor-pointer transition shadow-xs ${
             lowStockItems.length > 0 
-              ? 'bg-gradient-to-br from-rose-500/20 via-slate-900 to-rose-950/40 border-rose-500/50 hover:border-rose-400 shadow-md shadow-rose-500/10' 
-              : 'bg-slate-900/80 border-slate-800 hover:border-slate-700'
+              ? 'bg-gradient-to-br from-rose-950/30 via-[#0b1429] to-amber-950/30 border-rose-600/50 hover:border-rose-400 shadow-md shadow-rose-950/30' 
+              : 'bg-[#0b1429] border-blue-950 hover:border-amber-900/40'
           }`}
         >
-          <div className="text-[11px] text-rose-200/80 font-bold truncate">{t('lowStockAlerts')}</div>
-          <div className={`text-base sm:text-lg font-black mt-1 ${lowStockItems.length > 0 ? 'text-rose-400' : 'text-slate-300'}`}>
+          <div className="text-[11px] text-amber-200/80 font-bold truncate">{t('lowStockAlerts')}</div>
+          <div className={`text-base sm:text-lg font-black mt-1 ${lowStockItems.length > 0 ? 'text-amber-400' : 'text-slate-300'}`}>
             {lowStockItems.length} {language === 'ur' ? 'آئٹمز' : 'Alerts'}
           </div>
           <div className="text-[10px] text-slate-400 mt-0.5">
@@ -308,10 +308,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         {/* Total Orders / Pending */}
         <div 
           onClick={() => onNavigate('orders')} 
-          className="bg-gradient-to-br from-violet-500/10 via-slate-900 to-slate-900 border border-violet-500/30 hover:border-violet-400 p-3.5 rounded-xl cursor-pointer transition shadow-xs hover:shadow-md hover:shadow-violet-500/10"
+          className="bg-gradient-to-br from-blue-950/30 via-[#0b1429] to-[#0b1429] border border-blue-900/40 hover:border-blue-400 p-3.5 rounded-xl cursor-pointer transition shadow-xs hover:shadow-md"
         >
-          <div className="text-[11px] text-violet-200/80 font-bold truncate">{t('pendingOrders')}</div>
-          <div className="text-base sm:text-lg font-black text-violet-300 mt-1">
+          <div className="text-[11px] text-blue-200/80 font-bold truncate">{t('pendingOrders')}</div>
+          <div className="text-base sm:text-lg font-black text-blue-300 mt-1">
             {pendingOrders.length} <span className="text-xs text-slate-400 font-normal">/ {orders.length}</span>
           </div>
           <div className="text-[10px] text-slate-400 mt-0.5">{completedOrders.length} {language === 'ur' ? 'مکمل شدہ' : 'completed'}</div>
@@ -320,10 +320,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         {/* Staff / Workers */}
         <div 
           onClick={() => onNavigate('salaries')} 
-          className="bg-gradient-to-br from-teal-500/10 via-slate-900 to-slate-900 border border-teal-500/30 hover:border-teal-400 p-3.5 rounded-xl cursor-pointer transition shadow-xs hover:shadow-md hover:shadow-teal-500/10"
+          className="bg-gradient-to-br from-amber-950/25 via-[#0b1429] to-[#0b1429] border border-amber-900/40 hover:border-amber-500 p-3.5 rounded-xl cursor-pointer transition shadow-xs hover:shadow-md"
         >
-          <div className="text-[11px] text-teal-200/80 font-bold truncate">{t('employeeCount')}</div>
-          <div className="text-base sm:text-lg font-black text-teal-300 mt-1">
+          <div className="text-[11px] text-amber-200/80 font-bold truncate">{t('employeeCount')}</div>
+          <div className="text-base sm:text-lg font-black text-amber-300 mt-1">
             {employees.length} {language === 'ur' ? 'افراد' : 'Staff'}
           </div>
           <div className="text-[10px] text-slate-400 mt-0.5">{language === 'ur' ? 'ڈیزائنر و کاریگر' : 'Crew & Team'}</div>
@@ -333,7 +333,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       {/* Analytics Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         {/* Monthly Sales & Profit Chart */}
-        <div className="lg:col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-5">
+        <div className="lg:col-span-2 bg-[#0b1429] border border-amber-900/30 rounded-2xl p-5 shadow-lg shadow-black/30">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-sm font-bold text-white tracking-wide">
@@ -345,13 +345,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
             <div className="flex items-center gap-3 text-xs">
               <span className="flex items-center gap-1.5 text-amber-400 font-medium">
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-400" /> {language === 'ur' ? 'سیلز' : 'Sales'}
+                <span className="w-2.5 h-2.5 rounded-full bg-amber-500" /> {language === 'ur' ? 'سیلز' : 'Sales'}
               </span>
-              <span className="flex items-center gap-1.5 text-sky-400 font-medium">
-                <span className="w-2.5 h-2.5 rounded-full bg-sky-400" /> {language === 'ur' ? 'خریداری' : 'Purchases'}
+              <span className="flex items-center gap-1.5 text-blue-400 font-medium">
+                <span className="w-2.5 h-2.5 rounded-full bg-blue-500" /> {language === 'ur' ? 'خریداری' : 'Purchases'}
               </span>
-              <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" /> {language === 'ur' ? 'منافع' : 'Profit'}
+              <span className="flex items-center gap-1.5 text-amber-200 font-medium">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#c27838]" /> {language === 'ur' ? 'منافع' : 'Profit'}
               </span>
             </div>
           </div>
@@ -359,23 +359,23 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={monthlyChartData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#334155" opacity={0.4} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" opacity={0.6} />
                 <XAxis dataKey="month" stroke="#94a3b8" fontSize={11} />
                 <YAxis stroke="#94a3b8" fontSize={11} tickFormatter={(val) => `Rs.${(val/1000).toFixed(0)}k`} />
                 <Tooltip 
-                  contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '12px', fontSize: '12px', color: '#fff' }}
+                  contentStyle={{ backgroundColor: '#080d1a', borderColor: 'rgba(180, 83, 9, 0.4)', borderRadius: '12px', fontSize: '12px', color: '#fff' }}
                   formatter={(val: any) => [`Rs. ${Number(val).toLocaleString()}`, '']}
                 />
-                <Bar dataKey="sales" fill="#f59e0b" radius={[4, 4, 0, 0]} name="Sales" />
-                <Bar dataKey="purchases" fill="#38bdf8" radius={[4, 4, 0, 0]} name="Purchases" />
-                <Bar dataKey="profit" fill="#10b981" radius={[4, 4, 0, 0]} name="Profit" />
+                <Bar dataKey="sales" fill="#d97706" radius={[4, 4, 0, 0]} name="Sales" />
+                <Bar dataKey="purchases" fill="#3b82f6" radius={[4, 4, 0, 0]} name="Purchases" />
+                <Bar dataKey="profit" fill="#c27838" radius={[4, 4, 0, 0]} name="Profit" />
               </BarChart>
             </ResponsiveContainer>
           </div>
         </div>
 
         {/* Quick Financial Overview Card */}
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between">
+        <div className="bg-[#0b1429] border border-amber-900/30 rounded-2xl p-5 flex flex-col justify-between shadow-lg shadow-black/30">
           <div>
             <h3 className="text-sm font-bold text-white tracking-wide mb-1">
               {t('expenseBreakdown')}
@@ -385,37 +385,37 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </p>
 
             <div className="space-y-3">
-              <div className="flex items-center justify-between p-3 rounded-xl bg-slate-950/60 border border-slate-800">
+              <div className="flex items-center justify-between p-3 rounded-xl bg-[#080d1a] border border-amber-900/20">
                 <span className="text-xs text-slate-400">{t('totalSales')}</span>
-                <span className="text-sm font-extrabold text-white">
+                <span className="text-sm font-extrabold text-amber-300">
                   {settings.currency} {totalSales.toLocaleString()}
                 </span>
               </div>
 
-              <div className="flex items-center justify-between p-3 rounded-xl bg-slate-950/60 border border-slate-800">
+              <div className="flex items-center justify-between p-3 rounded-xl bg-[#080d1a] border border-blue-900/30">
                 <span className="text-xs text-slate-400">{t('totalPurchases')}</span>
-                <span className="text-sm font-extrabold text-sky-400">
+                <span className="text-sm font-extrabold text-blue-300">
                   {settings.currency} {totalPurchases.toLocaleString()}
                 </span>
               </div>
 
-              <div className="flex items-center justify-between p-3 rounded-xl bg-slate-950/60 border border-slate-800">
+              <div className="flex items-center justify-between p-3 rounded-xl bg-[#080d1a] border border-amber-950/40">
                 <span className="text-xs text-slate-400">{t('expenses')}</span>
-                <span className="text-sm font-extrabold text-rose-400">
+                <span className="text-sm font-extrabold text-amber-400">
                   {settings.currency} {totalExpenses.toLocaleString()}
                 </span>
               </div>
 
-              <div className="flex items-center justify-between p-3 rounded-xl bg-slate-950/60 border border-slate-800">
+              <div className="flex items-center justify-between p-3 rounded-xl bg-[#080d1a] border border-blue-950/50">
                 <span className="text-xs text-slate-400">{t('salaries')}</span>
-                <span className="text-sm font-extrabold text-purple-400">
+                <span className="text-sm font-extrabold text-blue-200">
                   {settings.currency} {totalSalaries.toLocaleString()}
                 </span>
               </div>
 
-              <div className="flex items-center justify-between p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
-                <span className="text-xs font-bold text-emerald-300">{t('netProfit')}</span>
-                <span className="text-base font-black text-emerald-400">
+              <div className="flex items-center justify-between p-3.5 rounded-xl bg-gradient-to-r from-amber-950/40 to-blue-950/40 border border-amber-600/40">
+                <span className="text-xs font-bold text-amber-200">{t('netProfit')}</span>
+                <span className="text-base font-black text-amber-300">
                   {settings.currency} {totalNetProfit.toLocaleString()}
                 </span>
               </div>
@@ -424,7 +424,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
           <button
             onClick={() => onNavigate('profitLoss')}
-            className="w-full mt-4 py-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl text-xs font-bold text-slate-200 flex items-center justify-center gap-1.5 transition"
+            className="w-full mt-4 py-2.5 bg-[#0d172e] hover:bg-[#142347] border border-amber-900/40 hover:border-amber-600/50 rounded-xl text-xs font-bold text-amber-200 flex items-center justify-center gap-1.5 transition cursor-pointer"
           >
             <span>{language === 'ur' ? 'تفصیلی نفع و نقصان رپورٹ' : 'View Full P&L Statement'}</span>
             <ArrowUpRight className="w-4 h-4 text-amber-400" />
@@ -435,7 +435,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       {/* Recent Orders & Recent Invoices Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         {/* Recent Orders */}
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+        <div className="bg-[#0b1429] border border-amber-900/30 rounded-2xl p-5 shadow-lg shadow-black/30">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-sm font-bold text-white tracking-wide">
@@ -447,7 +447,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
             <button
               onClick={() => onNavigate('orders')}
-              className="text-xs text-amber-400 hover:underline font-semibold"
+              className="text-xs text-amber-400 hover:underline font-semibold cursor-pointer"
             >
               {language === 'ur' ? 'تمام دیکھیں' : 'View All'} →
             </button>
@@ -457,14 +457,14 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             {orders.slice(0, 4).map(order => (
               <div 
                 key={order.id} 
-                className="p-3 bg-slate-950/50 border border-slate-800 rounded-xl flex items-center justify-between gap-3 hover:border-slate-700 transition"
+                className="p-3 bg-[#080d1a] border border-blue-950/60 rounded-xl flex items-center justify-between gap-3 hover:border-amber-900/50 transition"
               >
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-extrabold text-white truncate">
                       {order.customerName}
                     </span>
-                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">
+                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-950/60 text-blue-300 border border-blue-800/40">
                       {order.invoiceNumber}
                     </span>
                   </div>
@@ -474,22 +474,22 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                   <div className="flex items-center gap-2 text-[10px] text-slate-500 mt-1">
                     <span>Delivery: {order.deliveryDate}</span>
                     <span>•</span>
-                    <span className="text-amber-400/90 font-medium">{order.assignedWorker}</span>
+                    <span className="text-amber-400 font-medium">{order.assignedWorker}</span>
                   </div>
                 </div>
 
                 <div className="flex flex-col items-end gap-1.5 shrink-0">
                   <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
-                    order.orderStatus === 'Ready' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' :
-                    order.orderStatus === 'Delivered' ? 'bg-sky-500/20 text-sky-400 border border-sky-500/30' :
-                    order.orderStatus === 'Production' ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30' :
-                    order.orderStatus === 'Designing' ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' :
-                    'bg-slate-700 text-slate-300'
+                    order.orderStatus === 'Ready' ? 'bg-amber-950/40 text-amber-300 border border-amber-700/50' :
+                    order.orderStatus === 'Delivered' ? 'bg-blue-950/50 text-blue-300 border border-blue-600/50' :
+                    order.orderStatus === 'Production' ? 'bg-amber-900/30 text-amber-200 border border-amber-800/40' :
+                    order.orderStatus === 'Designing' ? 'bg-blue-900/30 text-blue-200 border border-blue-700/40' :
+                    'bg-slate-800 text-slate-300'
                   }`}>
                     {order.orderStatus}
                   </span>
 
-                  <span className="text-xs font-extrabold text-white">
+                  <span className="text-xs font-extrabold text-amber-300">
                     {settings.currency} {order.grandTotal.toLocaleString()}
                   </span>
                 </div>
@@ -499,7 +499,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         </div>
 
         {/* Recent Invoices & Billing Quick Actions */}
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+        <div className="bg-[#0b1429] border border-amber-900/30 rounded-2xl p-5 shadow-lg shadow-black/30">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-sm font-bold text-white tracking-wide">
@@ -511,7 +511,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
             <button
               onClick={() => onNavigate('orders')}
-              className="text-xs text-amber-400 hover:underline font-semibold"
+              className="text-xs text-amber-400 hover:underline font-semibold cursor-pointer"
             >
               {language === 'ur' ? 'تمام دیکھیں' : 'View All'} →
             </button>
@@ -521,7 +521,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             {orders.slice(0, 4).map(order => (
               <div 
                 key={order.id} 
-                className="p-3 bg-slate-950/50 border border-slate-800 rounded-xl flex items-center justify-between gap-3 hover:border-slate-700 transition"
+                className="p-3 bg-[#080d1a] border border-blue-950/60 rounded-xl flex items-center justify-between gap-3 hover:border-amber-900/50 transition"
               >
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
@@ -533,7 +533,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                     </span>
                   </div>
                   <div className="text-[11px] text-slate-400 mt-0.5">
-                    Advance: <span className="text-emerald-400 font-semibold">{settings.currency} {order.advancePayment.toLocaleString()}</span> • 
+                    Advance: <span className="text-blue-300 font-semibold">{settings.currency} {order.advancePayment.toLocaleString()}</span> • 
                     Remaining: <span className={`font-semibold ${order.remainingBalance > 0 ? 'text-amber-400' : 'text-slate-400'}`}>{settings.currency} {order.remainingBalance.toLocaleString()}</span>
                   </div>
                 </div>
@@ -541,10 +541,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 <div className="flex items-center gap-1.5">
                   <button
                     onClick={() => setActiveInvoiceOrder(order)}
-                    className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-bold transition cursor-pointer"
+                    className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-amber-950/40 hover:bg-amber-900/50 text-amber-300 border border-amber-700/50 text-xs font-bold transition cursor-pointer"
                     title="Print / View Invoice"
                   >
-                    <Printer className="w-3.5 h-3.5" />
+                    <Printer className="w-3.5 h-3.5 text-blue-400" />
                     <span>{t('printInvoice')}</span>
                   </button>
                 </div>

@@ -2,6 +2,8 @@
 
 @layer base {
   body {
+    background-color: #080d1a;
+    color: #f1f5f9;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   }
   
@@ -35,18 +37,18 @@
   }
 }
 
-/* Custom scrollbar for modern commercial look */
+/* Custom scrollbar for premium blue & brown bespoke studio look */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(8, 13, 26, 0.8);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(100, 116, 139, 0.5);
+  background: rgba(180, 83, 9, 0.4);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(148, 163, 184, 0.8);
+  background: rgba(194, 120, 56, 0.7);
 }
