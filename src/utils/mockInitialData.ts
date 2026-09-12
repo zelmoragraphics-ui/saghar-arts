@@ -19,7 +19,7 @@ export const initialSettings: BusinessSettings = {
   whatsappNumber: '03007639501',
   email: 'sagharts.fsd@gmail.com',
   address: 'Imtyaz Shaheed Road, Near Habeeb Chowk, Madina Town, Faisalabad',
-  developer: 'Ahmad Jahanzaib',
+  developer: 'Peak of Graphics (+92 3023536973)',
   currency: 'Rs.',
   invoicePrefix: 'SA-',
   taxRate: 0,
@@ -236,10 +236,10 @@ export const initialEmployees: Employee[] = [
 export const initialUsers: User[] = [
   {
     id: 'user-admin',
-    name: 'Admin Ahmad',
+    name: 'Administrator',
     username: 'admin',
     email: 'admin@saghararts.com',
-    password: 'admin', // Quick demo password, system prompts update
+    password: '1234',
     role: 'admin',
     phone: '03007639501',
     status: 'active',
@@ -256,9 +256,9 @@ export const initialUsers: User[] = [
   {
     id: 'user-owner',
     name: 'Hafiz Saghar (Owner)',
-    username: 'hafiz',
-    email: 'hafiz@saghararts.com',
-    password: 'owner',
+    username: 'owner',
+    email: 'owner@saghararts.com',
+    password: '12345',
     role: 'owner',
     phone: '03007639501',
     status: 'active',
@@ -267,9 +267,9 @@ export const initialUsers: User[] = [
       canViewProfits: true,
       canViewSalaries: true,
       canViewPurchases: true,
-      canManageUsers: false,
+      canManageUsers: true,
       canManageSettings: true,
-      canDeleteRecords: false
+      canDeleteRecords: true
     }
   },
   {
@@ -277,7 +277,7 @@ export const initialUsers: User[] = [
     name: 'Muhammad Rizwan (Worker)',
     username: 'worker',
     email: 'worker@saghararts.com',
-    password: 'worker',
+    password: '123456',
     role: 'worker',
     phone: '03058899221',
     status: 'active',

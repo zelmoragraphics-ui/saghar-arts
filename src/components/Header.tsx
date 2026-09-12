@@ -47,17 +47,19 @@ export const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
           <Menu className="w-5 h-5" />
         </button>
 
-        <div className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center font-black text-slate-950 shadow-md shadow-amber-500/20 text-lg tracking-wider">
-            SA
+        <div className="flex items-center gap-2.5">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-400 via-rose-500 to-cyan-400 p-0.5 shadow-md shadow-amber-500/20">
+            <div className="w-full h-full rounded-[10px] bg-slate-950 flex items-center justify-center font-black text-transparent bg-gradient-to-r from-amber-300 via-rose-300 to-cyan-300 bg-clip-text text-sm tracking-wider">
+              SA
+            </div>
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-white text-base tracking-wide flex items-center gap-1.5">
+              <span className="font-black text-white text-base tracking-wide flex items-center gap-1.5">
                 {settings.businessName}
               </span>
-              <span className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">
-                PRO ERP
+              <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-black rounded-full bg-gradient-to-r from-amber-400 via-rose-400 to-cyan-400 text-slate-950 shadow-xs">
+                PRO STUDIO
               </span>
             </div>
             <p className="text-[11px] text-slate-400 truncate max-w-[200px] sm:max-w-md">

@@ -178,129 +178,129 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         </div>
       )}
 
-      {/* Primary Financial Metric Cards (4 Cards) */}
+      {/* Primary Financial Metric Cards (4 Cards) with Vivid Multi-Color Aesthetic */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-        {/* Today's Sales */}
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-slate-700 transition">
+        {/* Today's Sales - Golden Amber */}
+        <div className="bg-gradient-to-br from-amber-500/15 via-slate-900 to-amber-950/40 border border-amber-500/40 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-amber-400 hover:shadow-lg hover:shadow-amber-500/10 transition">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-slate-400">{t('todaySales')}</span>
-            <div className="p-2 bg-amber-500/10 text-amber-400 rounded-xl">
+            <span className="text-xs font-bold text-amber-200/90 uppercase tracking-wide">{t('todaySales')}</span>
+            <div className="p-2.5 bg-gradient-to-br from-amber-400 to-amber-600 text-slate-950 font-black rounded-xl shadow-md shadow-amber-500/30">
               <ShoppingCart className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-lg sm:text-2xl font-black text-white tracking-tight">
+          <div className="text-lg sm:text-2xl font-black text-amber-300 tracking-tight">
             {settings.currency} {todaySales.toLocaleString()}
           </div>
-          <div className="mt-2 flex items-center gap-1.5 text-[11px] text-slate-400">
-            <span className="text-emerald-400 font-bold">{todayOrders.length}</span>
-            <span>{language === 'ur' ? 'آج کے آرڈرز' : 'orders processed'}</span>
+          <div className="mt-2 flex items-center gap-1.5 text-[11px] text-slate-300">
+            <span className="text-amber-400 font-bold bg-amber-500/20 px-1.5 py-0.5 rounded">{todayOrders.length}</span>
+            <span>{language === 'ur' ? 'آج کے آرڈرز' : 'orders today'}</span>
           </div>
         </div>
 
-        {/* Today's Purchases */}
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-slate-700 transition">
+        {/* Today's Purchases - Electric Sky / Cyan */}
+        <div className="bg-gradient-to-br from-sky-500/15 via-slate-900 to-cyan-950/40 border border-sky-500/40 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-sky-400 hover:shadow-lg hover:shadow-sky-500/10 transition">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-slate-400">{t('todayPurchases')}</span>
-            <div className="p-2 bg-sky-500/10 text-sky-400 rounded-xl">
+            <span className="text-xs font-bold text-sky-200/90 uppercase tracking-wide">{t('todayPurchases')}</span>
+            <div className="p-2.5 bg-gradient-to-br from-sky-400 to-cyan-500 text-slate-950 font-black rounded-xl shadow-md shadow-sky-500/30">
               <Truck className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-lg sm:text-2xl font-black text-white tracking-tight">
+          <div className="text-lg sm:text-2xl font-black text-sky-300 tracking-tight">
             {settings.currency} {todayPurchases.toLocaleString()}
           </div>
-          <div className="mt-2 flex items-center gap-1.5 text-[11px] text-slate-400">
-            <span className="text-sky-400 font-bold">{todayPurchasesList.length}</span>
+          <div className="mt-2 flex items-center gap-1.5 text-[11px] text-slate-300">
+            <span className="text-sky-400 font-bold bg-sky-500/20 px-1.5 py-0.5 rounded">{todayPurchasesList.length}</span>
             <span>{language === 'ur' ? 'خریداری انوائسز' : 'invoices recorded'}</span>
           </div>
         </div>
 
-        {/* Total Expenses */}
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-slate-700 transition">
+        {/* Total Expenses - Vivid Coral / Rose */}
+        <div className="bg-gradient-to-br from-rose-500/15 via-slate-900 to-pink-950/40 border border-rose-500/40 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-rose-400 hover:shadow-lg hover:shadow-rose-500/10 transition">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-slate-400">{t('todayExpenses')}</span>
-            <div className="p-2 bg-rose-500/10 text-rose-400 rounded-xl">
+            <span className="text-xs font-bold text-rose-200/90 uppercase tracking-wide">{t('todayExpenses')}</span>
+            <div className="p-2.5 bg-gradient-to-br from-rose-400 to-rose-600 text-white font-black rounded-xl shadow-md shadow-rose-500/30">
               <DollarSign className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-lg sm:text-2xl font-black text-white tracking-tight">
+          <div className="text-lg sm:text-2xl font-black text-rose-300 tracking-tight">
             {settings.currency} {todayExpenses.toLocaleString()}
           </div>
-          <div className="mt-2 flex items-center gap-1.5 text-[11px] text-slate-400">
+          <div className="mt-2 flex items-center gap-1.5 text-[11px] text-slate-300">
             <span>{language === 'ur' ? 'کل اخراجات:' : 'Total OpEx:'}</span>
             <span className="text-rose-400 font-bold">{settings.currency} {totalExpenses.toLocaleString()}</span>
           </div>
         </div>
 
-        {/* Today's Profit */}
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-slate-700 transition">
+        {/* Today's Profit - Luminous Mint / Emerald */}
+        <div className="bg-gradient-to-br from-emerald-500/15 via-slate-900 to-teal-950/40 border border-emerald-500/40 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-emerald-400 hover:shadow-lg hover:shadow-emerald-500/10 transition">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-slate-400">{t('todayProfit')}</span>
-            <div className="p-2 bg-emerald-500/10 text-emerald-400 rounded-xl">
+            <span className="text-xs font-bold text-emerald-200/90 uppercase tracking-wide">{t('todayProfit')}</span>
+            <div className="p-2.5 bg-gradient-to-br from-emerald-400 to-teal-500 text-slate-950 font-black rounded-xl shadow-md shadow-emerald-500/30">
               <TrendingUp className="w-4 h-4" />
             </div>
           </div>
-          <div className={`text-lg sm:text-2xl font-black tracking-tight ${todayProfit >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+          <div className={`text-lg sm:text-2xl font-black tracking-tight ${todayProfit >= 0 ? 'text-emerald-300' : 'text-rose-400'}`}>
             {settings.currency} {todayProfit.toLocaleString()}
           </div>
-          <div className="mt-2 flex items-center gap-1.5 text-[11px] text-slate-400">
+          <div className="mt-2 flex items-center gap-1.5 text-[11px] text-slate-300">
             <span>{language === 'ur' ? 'کل خالص منافع:' : 'All Net Profit:'}</span>
             <span className="text-emerald-400 font-bold">{settings.currency} {totalNetProfit.toLocaleString()}</span>
           </div>
         </div>
       </div>
 
-      {/* Secondary Quick Metrics Row (6 Cards) */}
+      {/* Secondary Quick Metrics Row (6 Colorful Cards) */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
         {/* Pending Payments */}
         <div 
           onClick={() => onNavigate('customers')} 
-          className="bg-slate-900/80 border border-slate-800 hover:border-amber-500/40 p-3.5 rounded-xl cursor-pointer transition"
+          className="bg-gradient-to-br from-amber-500/10 via-slate-900 to-slate-900 border border-amber-500/30 hover:border-amber-400 p-3.5 rounded-xl cursor-pointer transition shadow-xs hover:shadow-md hover:shadow-amber-500/10"
         >
-          <div className="text-[11px] text-slate-400 font-semibold truncate">{t('pendingPayments')}</div>
+          <div className="text-[11px] text-amber-200/80 font-bold truncate">{t('pendingPayments')}</div>
           <div className="text-base sm:text-lg font-black text-amber-400 mt-1">
             {settings.currency} {totalCustomerReceivables.toLocaleString()}
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5">{customers.length} {language === 'ur' ? 'گاہک' : 'customers'}</div>
+          <div className="text-[10px] text-slate-400 mt-0.5">{customers.length} {language === 'ur' ? 'گاہک' : 'customers'}</div>
         </div>
 
         {/* Supplier Payables */}
         <div 
           onClick={() => onNavigate('suppliers')} 
-          className="bg-slate-900/80 border border-slate-800 hover:border-sky-500/40 p-3.5 rounded-xl cursor-pointer transition"
+          className="bg-gradient-to-br from-sky-500/10 via-slate-900 to-slate-900 border border-sky-500/30 hover:border-sky-400 p-3.5 rounded-xl cursor-pointer transition shadow-xs hover:shadow-md hover:shadow-sky-500/10"
         >
-          <div className="text-[11px] text-slate-400 font-semibold truncate">{t('supplierPayables')}</div>
+          <div className="text-[11px] text-sky-200/80 font-bold truncate">{t('supplierPayables')}</div>
           <div className="text-base sm:text-lg font-black text-sky-400 mt-1">
             {settings.currency} {totalSupplierPayables.toLocaleString()}
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5">{suppliers.length} {language === 'ur' ? 'سپلائرز' : 'suppliers'}</div>
+          <div className="text-[10px] text-slate-400 mt-0.5">{suppliers.length} {language === 'ur' ? 'سپلائرز' : 'suppliers'}</div>
         </div>
 
         {/* Total Stock */}
         <div 
           onClick={() => onNavigate('inventory')} 
-          className="bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 p-3.5 rounded-xl cursor-pointer transition"
+          className="bg-gradient-to-br from-indigo-500/10 via-slate-900 to-slate-900 border border-indigo-500/30 hover:border-indigo-400 p-3.5 rounded-xl cursor-pointer transition shadow-xs hover:shadow-md hover:shadow-indigo-500/10"
         >
-          <div className="text-[11px] text-slate-400 font-semibold truncate">{t('totalStockItems')}</div>
-          <div className="text-base sm:text-lg font-black text-white mt-1">
+          <div className="text-[11px] text-indigo-200/80 font-bold truncate">{t('totalStockItems')}</div>
+          <div className="text-base sm:text-lg font-black text-indigo-300 mt-1">
             {totalStockCount.toLocaleString()} <span className="text-xs text-slate-400 font-normal">units</span>
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5">{materials.length} {language === 'ur' ? 'میٹریلز' : 'material types'}</div>
+          <div className="text-[10px] text-slate-400 mt-0.5">{materials.length} {language === 'ur' ? 'میٹریلز' : 'materials'}</div>
         </div>
 
         {/* Low Stock Alerts */}
         <div 
           onClick={() => onNavigate('inventory')} 
-          className={`border p-3.5 rounded-xl cursor-pointer transition ${
+          className={`border p-3.5 rounded-xl cursor-pointer transition shadow-xs ${
             lowStockItems.length > 0 
-              ? 'bg-rose-500/10 border-rose-500/30 hover:border-rose-500/50' 
+              ? 'bg-gradient-to-br from-rose-500/20 via-slate-900 to-rose-950/40 border-rose-500/50 hover:border-rose-400 shadow-md shadow-rose-500/10' 
               : 'bg-slate-900/80 border-slate-800 hover:border-slate-700'
           }`}
         >
-          <div className="text-[11px] text-slate-400 font-semibold truncate">{t('lowStockAlerts')}</div>
+          <div className="text-[11px] text-rose-200/80 font-bold truncate">{t('lowStockAlerts')}</div>
           <div className={`text-base sm:text-lg font-black mt-1 ${lowStockItems.length > 0 ? 'text-rose-400' : 'text-slate-300'}`}>
             {lowStockItems.length} {language === 'ur' ? 'آئٹمز' : 'Alerts'}
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5">
+          <div className="text-[10px] text-slate-400 mt-0.5">
             {lowStockItems.length > 0 ? (language === 'ur' ? 'فوری خریداری درکار' : 'Requires Reorder') : (language === 'ur' ? 'اسٹاک مناسب ہے' : 'Stock Optimal')}
           </div>
         </div>
@@ -308,25 +308,25 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         {/* Total Orders / Pending */}
         <div 
           onClick={() => onNavigate('orders')} 
-          className="bg-slate-900/80 border border-slate-800 hover:border-amber-500/40 p-3.5 rounded-xl cursor-pointer transition"
+          className="bg-gradient-to-br from-violet-500/10 via-slate-900 to-slate-900 border border-violet-500/30 hover:border-violet-400 p-3.5 rounded-xl cursor-pointer transition shadow-xs hover:shadow-md hover:shadow-violet-500/10"
         >
-          <div className="text-[11px] text-slate-400 font-semibold truncate">{t('pendingOrders')}</div>
-          <div className="text-base sm:text-lg font-black text-amber-400 mt-1">
+          <div className="text-[11px] text-violet-200/80 font-bold truncate">{t('pendingOrders')}</div>
+          <div className="text-base sm:text-lg font-black text-violet-300 mt-1">
             {pendingOrders.length} <span className="text-xs text-slate-400 font-normal">/ {orders.length}</span>
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5">{completedOrders.length} {language === 'ur' ? 'مکمل شدہ' : 'completed'}</div>
+          <div className="text-[10px] text-slate-400 mt-0.5">{completedOrders.length} {language === 'ur' ? 'مکمل شدہ' : 'completed'}</div>
         </div>
 
         {/* Staff / Workers */}
         <div 
           onClick={() => onNavigate('salaries')} 
-          className="bg-slate-900/80 border border-slate-800 hover:border-purple-500/40 p-3.5 rounded-xl cursor-pointer transition"
+          className="bg-gradient-to-br from-teal-500/10 via-slate-900 to-slate-900 border border-teal-500/30 hover:border-teal-400 p-3.5 rounded-xl cursor-pointer transition shadow-xs hover:shadow-md hover:shadow-teal-500/10"
         >
-          <div className="text-[11px] text-slate-400 font-semibold truncate">{t('employeeCount')}</div>
-          <div className="text-base sm:text-lg font-black text-purple-400 mt-1">
+          <div className="text-[11px] text-teal-200/80 font-bold truncate">{t('employeeCount')}</div>
+          <div className="text-base sm:text-lg font-black text-teal-300 mt-1">
             {employees.length} {language === 'ur' ? 'افراد' : 'Staff'}
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5">{language === 'ur' ? 'ڈیزائنر، فیبریکیٹر و کاریگر' : 'Designers & Crew'}</div>
+          <div className="text-[10px] text-slate-400 mt-0.5">{language === 'ur' ? 'ڈیزائنر و کاریگر' : 'Crew & Team'}</div>
         </div>
       </div>
 

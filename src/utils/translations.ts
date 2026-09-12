@@ -176,7 +176,7 @@ export const translations = {
     createBackup: "Download System Backup",
     restoreBackup: "Restore from Backup File",
     resetData: "Reset to Default Demo Data",
-    developerCredit: "Software Developed by Ahmad Jahanzaib",
+    developerCredit: "Software Developed by Peak of Graphics (+92 3023536973)",
 
     // Actions & Common
     save: "Save Changes",
@@ -369,7 +369,7 @@ export const translations = {
     createBackup: "سسٹم بیک اپ فائل ڈاؤن لوڈ کریں",
     restoreBackup: "بیک اپ فائل سے بحال کریں",
     resetData: "ڈیمو ڈیٹا پر ری سیٹ کریں",
-    developerCredit: "سافٹ ویئر ڈویلپر: احمد جہانزیب",
+    developerCredit: "سافٹ ویئر ڈویلپر: پیک آف گرافکس (923023536973+)",
 
     // Actions & Common
     save: "محفوظ کریں",

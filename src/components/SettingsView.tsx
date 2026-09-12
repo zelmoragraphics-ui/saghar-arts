@@ -338,9 +338,12 @@ export const SettingsView: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="p-4 bg-slate-950 border border-amber-500/30 rounded-xl space-y-2">
-              <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-black text-xs uppercase">
-                Admin
-              </span>
+              <div className="flex items-center justify-between">
+                <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-black text-xs uppercase">
+                  Admin
+                </span>
+                <span className="text-[10px] font-mono text-amber-300">User: admin • Pass: 1234</span>
+              </div>
               <p className="text-xs text-slate-300 font-semibold">Full System Access</p>
               <ul className="text-[11px] text-slate-400 list-disc pl-4 space-y-1">
                 <li>Create, edit, delete any orders & invoices</li>
@@ -351,9 +354,12 @@ export const SettingsView: React.FC = () => {
             </div>
 
             <div className="p-4 bg-slate-950 border border-sky-500/30 rounded-xl space-y-2">
-              <span className="px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 font-black text-xs uppercase">
-                Owner (Hafiz Saghar)
-              </span>
+              <div className="flex items-center justify-between">
+                <span className="px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 font-black text-xs uppercase">
+                  Owner (Hafiz Saghar)
+                </span>
+                <span className="text-[10px] font-mono text-sky-300">User: owner • Pass: 12345</span>
+              </div>
               <p className="text-xs text-slate-300 font-semibold">Executive Oversight</p>
               <ul className="text-[11px] text-slate-400 list-disc pl-4 space-y-1">
                 <li>View all operational metrics & live revenue</li>
@@ -364,9 +370,12 @@ export const SettingsView: React.FC = () => {
             </div>
 
             <div className="p-4 bg-slate-950 border border-emerald-500/30 rounded-xl space-y-2">
-              <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-black text-xs uppercase">
-                Worker
-              </span>
+              <div className="flex items-center justify-between">
+                <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-black text-xs uppercase">
+                  Worker
+                </span>
+                <span className="text-[10px] font-mono text-emerald-300">User: worker • Pass: 123456</span>
+              </div>
               <p className="text-xs text-slate-300 font-semibold">Shop Floor & Design</p>
               <ul className="text-[11px] text-slate-400 list-disc pl-4 space-y-1">
                 <li>Update order statuses (Design, Ready, Delivered)</li>

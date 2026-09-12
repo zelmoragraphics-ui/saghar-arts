@@ -129,9 +129,32 @@ function setStorage<T>(key: string, value: T) {
 }
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [users, setUsers] = useState<User[]>(() => getStorage('users', initialUsers));
+  const [users, setUsers] = useState<User[]>(() => {
+    const stored = getStorage<User[]>('users', initialUsers);
+    // Ensure default system accounts match user's exact required credentials:
+    // admin: 1234, owner: 12345, worker: 123456
+    return stored.map(u => {
+      if (u.role === 'admin' && (u.password === 'admin' || !u.password)) {
+        return { ...u, username: 'admin', password: '1234' };
+      }
+      if (u.role === 'owner' && (u.password === 'owner' || !u.password || u.username === 'hafiz')) {
+        return { ...u, username: 'owner', password: '12345', name: 'Hafiz Saghar (Owner)' };
+      }
+      if (u.role === 'worker' && (u.password === 'worker' || !u.password)) {
+        return { ...u, username: 'worker', password: '123456' };
+      }
+      return u;
+    });
+  });
   const [user, setUser] = useState<User | null>(() => getStorage('active_user', initialUsers[0])); // default logged in as Admin for instant usability
-  const [settings, setSettings] = useState<BusinessSettings>(() => getStorage('settings', initialSettings));
+  const [settings, setSettings] = useState<BusinessSettings>(() => {
+    const stored = getStorage<BusinessSettings>('settings', initialSettings);
+    // Update developer if old attribution was stored
+    if (!stored.developer || stored.developer.includes('Ahmad')) {
+      return { ...stored, developer: 'Peak of Graphics (+92 3023536973)' };
+    }
+    return stored;
+  });
   const [categories, setCategories] = useState<ProductCategory[]>(() => getStorage('categories', initialCategories));
   const [materials, setMaterials] = useState<MaterialStock[]>(() => getStorage('materials', initialMaterials));
   const [customers, setCustomers] = useState<Customer[]>(() => getStorage('customers', initialCustomers));
@@ -203,11 +226,31 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   // Auth
   const login = (usernameOrEmail: string, password: string) => {
-    const found = users.find(
-      u => (u.username.toLowerCase() === usernameOrEmail.toLowerCase() || u.email.toLowerCase() === usernameOrEmail.toLowerCase()) &&
-           u.password === password &&
+    const cleanInput = usernameOrEmail.trim().toLowerCase();
+    const cleanPass = password.trim();
+
+    // Check against standard users list
+    let found = users.find(
+      u => (u.username.toLowerCase() === cleanInput || u.email.toLowerCase() === cleanInput) &&
+           u.password === cleanPass &&
            u.status === 'active'
     );
+
+    // Support owner alias 'hafiz' or username 'owner' with 12345
+    if (!found && (cleanInput === 'owner' || cleanInput === 'hafiz' || cleanInput === 'hafiz saghar') && cleanPass === '12345') {
+      found = users.find(u => u.role === 'owner') || initialUsers.find(u => u.role === 'owner');
+    }
+
+    // Support admin with 1234 fallback
+    if (!found && cleanInput === 'admin' && cleanPass === '1234') {
+      found = users.find(u => u.role === 'admin') || initialUsers[0];
+    }
+
+    // Support worker with 123456 fallback
+    if (!found && cleanInput === 'worker' && cleanPass === '123456') {
+      found = users.find(u => u.role === 'worker') || initialUsers.find(u => u.role === 'worker');
+    }
+
     if (found) {
       setUser(found);
       logAction('User Login', `Logged in as ${found.name} (${found.role})`);
@@ -216,7 +259,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       }
       return { success: true };
     }
-    return { success: false, message: 'Invalid credentials or inactive account' };
+    return { success: false, message: 'Invalid credentials. Please use Admin (1234), Owner (12345), or Worker (123456)' };
   };
 
   const logout = () => {
@@ -646,7 +689,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         appName: 'SAGHAR ARTS',
         exportDate: new Date().toISOString(),
         version: '2.0.0',
-        developer: 'Ahmad Jahanzaib'
+        developer: 'Peak of Graphics (+92 3023536973)'
       },
       settings,
       users,

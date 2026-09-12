@@ -54,75 +54,75 @@ export const Sidebar: React.FC<SidebarProps> = ({
     {
       id: 'dashboard',
       labelKey: 'dashboard',
-      icon: <LayoutDashboard className="w-4 h-4" />
+      icon: <LayoutDashboard className="w-4 h-4 text-amber-400" />
     },
     {
       id: 'orders',
       labelKey: 'orders',
-      icon: <ShoppingCart className="w-4 h-4" />
+      icon: <ShoppingCart className="w-4 h-4 text-emerald-400" />
     },
     {
       id: 'inventory',
       labelKey: 'inventory',
-      icon: <Package className="w-4 h-4" />
+      icon: <Package className="w-4 h-4 text-indigo-400" />
     },
     {
       id: 'categories',
       labelKey: 'categories',
-      icon: <Layers className="w-4 h-4" />
+      icon: <Layers className="w-4 h-4 text-fuchsia-400" />
     },
     {
       id: 'customers',
       labelKey: 'customers',
-      icon: <Users className="w-4 h-4" />,
+      icon: <Users className="w-4 h-4 text-cyan-400" />,
       hidden: isWorker && !user?.permissions?.canViewPurchases
     },
     {
       id: 'purchases',
       labelKey: 'purchases',
-      icon: <Truck className="w-4 h-4" />,
+      icon: <Truck className="w-4 h-4 text-sky-400" />,
       hidden: isWorker
     },
     {
       id: 'suppliers',
       labelKey: 'suppliers',
-      icon: <Building2 className="w-4 h-4" />,
+      icon: <Building2 className="w-4 h-4 text-blue-400" />,
       hidden: isWorker
     },
     {
       id: 'expenses',
       labelKey: 'expenses',
-      icon: <Receipt className="w-4 h-4" />,
+      icon: <Receipt className="w-4 h-4 text-rose-400" />,
       hidden: isWorker
     },
     {
       id: 'salaries',
       labelKey: 'salaries',
-      icon: <BadgeDollarSign className="w-4 h-4" />,
+      icon: <BadgeDollarSign className="w-4 h-4 text-teal-400" />,
       hidden: isWorker
     },
     {
       id: 'profitLoss',
       labelKey: 'profitLoss',
-      icon: <TrendingUp className="w-4 h-4" />,
+      icon: <TrendingUp className="w-4 h-4 text-purple-400" />,
       hidden: isWorker
     },
     {
       id: 'reports',
       labelKey: 'reports',
-      icon: <FileText className="w-4 h-4" />,
+      icon: <FileText className="w-4 h-4 text-violet-400" />,
       hidden: isWorker
     },
     {
       id: 'settings',
       labelKey: 'settings',
-      icon: <Settings className="w-4 h-4" />,
+      icon: <Settings className="w-4 h-4 text-amber-300" />,
       hidden: isWorker
     },
     {
       id: 'activityLog',
       labelKey: 'activityLog',
-      icon: <Activity className="w-4 h-4" />,
+      icon: <Activity className="w-4 h-4 text-orange-400" />,
       hidden: isWorker
     }
   ];
@@ -190,11 +190,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 }}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all duration-150 cursor-pointer text-left ${
                   isActive
-                    ? 'bg-amber-500 text-slate-950 font-bold shadow-md shadow-amber-500/20'
-                    : 'text-slate-300 hover:bg-slate-800/70 hover:text-white'
+                    ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold shadow-lg shadow-amber-500/25 ring-1 ring-amber-400'
+                    : 'text-slate-300 hover:bg-slate-800/80 hover:text-white'
                 }`}
               >
-                <span className={isActive ? 'text-slate-950' : 'text-slate-400'}>
+                <span className={isActive ? 'text-slate-950 scale-110 transition-transform' : 'opacity-85'}>
                   {item.icon}
                 </span>
                 <span className="flex-1 truncate">
@@ -206,12 +206,23 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {/* Bottom Contact & Developer Credit */}
-        <div className="p-3 border-t border-slate-800 bg-slate-950/30 text-center">
-          <div className="text-[11px] font-bold text-slate-300">
-            {settings.ownerName} • {settings.contactNumber}
+        <div className="p-3 border-t border-slate-800 bg-slate-950/60 text-center">
+          <div className="text-[11px] font-extrabold text-slate-200">
+            {settings.ownerName} • <a href={`tel:${settings.contactNumber}`} className="text-amber-400 hover:underline">{settings.contactNumber}</a>
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5">
-            Dev: <span className="text-amber-400/80 font-medium">{settings.developer}</span>
+          <div className="text-[10px] text-slate-400 mt-1 flex items-center justify-center gap-1.5">
+            <span>Dev:</span>
+            <a 
+              href="tel:+923023536973" 
+              className="font-bold bg-gradient-to-r from-amber-400 via-rose-400 to-cyan-400 bg-clip-text text-transparent hover:underline"
+              title="Peak of Graphics (+92 3023536973)"
+            >
+              Peak of Graphics
+            </a>
+            <span className="text-slate-500">•</span>
+            <a href="tel:+923023536973" className="text-[10px] font-mono text-emerald-400 hover:underline">
+              +92 3023536973
+            </a>
           </div>
         </div>
       </aside>
