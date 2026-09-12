@@ -33,64 +33,61 @@ export const LoginScreen: React.FC = () => {
     setError('');
     setIsLoading(true);
 
-    setTimeout(() => {
-      const res = login(usernameOrEmail, password);
-      setIsLoading(false);
-      if (!res.success) {
-        setError(res.message || (language === 'ur' ? 'غلط یوزر نام یا پاس ورڈ' : 'Invalid credentials'));
-      }
-    }, 300);
+    const res = login(usernameOrEmail, password);
+    setIsLoading(false);
+    if (!res.success) {
+      setError(res.message || (language === 'ur' ? 'غلط یوزر نام یا پاس ورڈ' : 'Invalid credentials'));
+    }
   };
 
   const handleQuickLogin = (uname: string, pass: string) => {
     setUsernameOrEmail(uname);
     setPassword(pass);
     setError('');
-    setIsLoading(true);
-    setTimeout(() => {
-      login(uname, pass);
-      setIsLoading(false);
-    }, 200);
+    const res = login(uname, pass);
+    if (!res.success) {
+      setError(res.message || 'Login failed');
+    }
   };
 
   return (
-    <div className="min-h-screen w-full bg-slate-950 flex flex-col justify-center items-center p-4 relative overflow-hidden selection:bg-amber-500 selection:text-slate-950">
+    <div className="min-h-screen w-full bg-slate-950 flex flex-col items-center px-4 py-6 sm:py-10 relative overflow-y-auto selection:bg-amber-500 selection:text-slate-950">
       {/* Vibrant Colorful LED / Neon Glowing Ambient Spheres */}
-      <div className="absolute -top-32 -left-32 w-80 h-80 bg-amber-500/20 rounded-full blur-[100px] pointer-events-none animate-pulse" />
-      <div className="absolute top-1/4 -right-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-[110px] pointer-events-none" />
-      <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-purple-600/20 rounded-full blur-[110px] pointer-events-none" />
-      <div className="absolute bottom-10 -right-20 w-72 h-72 bg-emerald-500/15 rounded-full blur-[90px] pointer-events-none" />
+      <div className="fixed -top-32 -left-32 w-80 h-80 bg-amber-500/20 rounded-full blur-[100px] pointer-events-none animate-pulse" />
+      <div className="fixed top-1/4 -right-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-[110px] pointer-events-none" />
+      <div className="fixed -bottom-32 left-1/3 w-96 h-96 bg-purple-600/20 rounded-full blur-[110px] pointer-events-none" />
+      <div className="fixed bottom-10 -right-20 w-72 h-72 bg-emerald-500/15 rounded-full blur-[90px] pointer-events-none" />
 
       {/* Top Bar: Colorful Tagline & Language Switch */}
-      <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-20 max-w-5xl mx-auto">
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 backdrop-blur-md text-[11px] text-slate-300 shadow-md">
+      <div className="w-full max-w-lg mb-3 flex items-center justify-between z-20">
+        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 backdrop-blur-md text-[11px] text-slate-300 shadow-md">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
           <span className="font-semibold bg-gradient-to-r from-amber-400 via-rose-400 to-cyan-400 bg-clip-text text-transparent">
-            SAGHAR ARTS • Multi-Color Advertising Suite
+            SAGHAR ARTS • Studio Suite
           </span>
         </div>
 
         <button
           onClick={() => toggleLanguage()}
-          className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl border border-slate-700/80 bg-slate-900/90 hover:bg-slate-800 text-xs font-semibold text-amber-400 transition shadow-lg cursor-pointer backdrop-blur-md"
+          className="flex items-center gap-1.5 px-3 py-1 rounded-xl border border-slate-700/80 bg-slate-900/90 hover:bg-slate-800 text-xs font-semibold text-amber-400 transition shadow-lg cursor-pointer backdrop-blur-md"
         >
-          <Globe className="w-4 h-4" />
+          <Globe className="w-3.5 h-3.5" />
           <span>{language === 'en' ? 'اردو (Urdu)' : 'English'}</span>
         </button>
       </div>
 
-      <div className="w-full max-w-lg bg-slate-900/90 border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-purple-950/20 relative z-10 backdrop-blur-xl mt-12 mb-6">
+      <div className="w-full max-w-lg bg-slate-900/95 border border-slate-700/80 rounded-3xl p-5 sm:p-7 shadow-2xl shadow-purple-950/25 relative z-10 backdrop-blur-xl">
         {/* Brand Header with Rich Multi-Color Neon Accent */}
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center justify-center p-0.5 rounded-2xl bg-gradient-to-tr from-amber-400 via-rose-500 to-cyan-400 shadow-xl shadow-amber-500/25 mb-3">
-            <div className="w-16 h-16 rounded-[14px] bg-slate-950 flex items-center justify-center text-amber-400">
-              <Layers className="w-9 h-9 stroke-[2.2] text-amber-400" />
+        <div className="text-center mb-5">
+          <div className="inline-flex items-center justify-center p-0.5 rounded-2xl bg-gradient-to-tr from-amber-400 via-rose-500 to-cyan-400 shadow-xl shadow-amber-500/25 mb-2.5">
+            <div className="w-14 h-14 rounded-[14px] bg-slate-950 flex items-center justify-center text-amber-400">
+              <Layers className="w-8 h-8 stroke-[2.2] text-amber-400" />
             </div>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black tracking-wider text-white">
             {settings.businessName}
           </h1>
-          <p className="text-xs font-bold tracking-wide uppercase mt-1 bg-gradient-to-r from-amber-400 via-rose-400 to-cyan-400 bg-clip-text text-transparent">
+          <p className="text-xs font-bold tracking-wide uppercase mt-0.5 bg-gradient-to-r from-amber-400 via-rose-400 to-cyan-400 bg-clip-text text-transparent">
             {language === 'ur' ? 'سائن بورڈ • 3D ڈیزائن • نیون و فلیکس • ڈیجیٹل پرنٹنگ' : 'Sign Board • 3D Design • Neon & Flex • Digital Printing'}
           </p>
           <p className="text-[11px] text-slate-400 mt-1 max-w-xs mx-auto">
@@ -105,13 +102,13 @@ export const LoginScreen: React.FC = () => {
           </div>
         )}
 
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-3.5">
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1.5">
-              {language === 'ur' ? 'یوزر نام یا ای میل' : 'Username / Role'}
+            <label className="block text-xs font-bold text-slate-300 mb-1">
+              {language === 'ur' ? 'یوزر نام یا کردار' : 'Username / Role'}
             </label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400 pointer-events-none">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <User className="w-4 h-4 text-amber-400" />
               </span>
               <input
@@ -119,18 +116,18 @@ export const LoginScreen: React.FC = () => {
                 value={usernameOrEmail}
                 onChange={e => setUsernameOrEmail(e.target.value)}
                 required
-                className="w-full pl-9 pr-3 py-2.5 bg-slate-950/80 border border-slate-700 rounded-xl text-white text-sm focus:border-amber-400 focus:ring-1 focus:ring-amber-400 focus:outline-hidden placeholder:text-slate-500 transition"
+                className="w-full pl-9 pr-3 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-white text-sm focus:border-amber-400 focus:ring-1 focus:ring-amber-400 focus:outline-hidden placeholder:text-slate-500 transition"
                 placeholder="admin / owner / worker"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1.5">
+            <label className="block text-xs font-bold text-slate-300 mb-1">
               {language === 'ur' ? 'پاس ورڈ' : 'Password'}
             </label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400 pointer-events-none">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <Lock className="w-4 h-4 text-cyan-400" />
               </span>
               <input
@@ -138,20 +135,20 @@ export const LoginScreen: React.FC = () => {
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 required
-                className="w-full pl-9 pr-10 py-2.5 bg-slate-950/80 border border-slate-700 rounded-xl text-white text-sm focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 focus:outline-hidden placeholder:text-slate-500 transition"
+                className="w-full pl-9 pr-10 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-white text-sm focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 focus:outline-hidden placeholder:text-slate-500 transition"
                 placeholder="••••••"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-white"
+                className="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-white cursor-pointer"
               >
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-xs text-slate-400 pt-1">
+          <div className="flex items-center justify-between text-xs text-slate-400 pt-0.5">
             <label className="flex items-center gap-2 cursor-pointer">
               <input
                 type="checkbox"
@@ -170,13 +167,13 @@ export const LoginScreen: React.FC = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full mt-2 py-3 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-black text-sm transition shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+            className="w-full mt-2 py-3 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-black text-sm transition shadow-lg shadow-amber-500/30 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
           >
             {isLoading ? (
               <span className="animate-spin rounded-full h-4 w-4 border-2 border-slate-950 border-t-transparent" />
             ) : (
               <>
-                <ShieldCheck className="w-4 h-4" />
+                <ShieldCheck className="w-4 h-4 text-slate-950" />
                 <span>{language === 'ur' ? 'سسٹم لاگ ان کریں' : 'Log In to SAGHAR ARTS'}</span>
               </>
             )}

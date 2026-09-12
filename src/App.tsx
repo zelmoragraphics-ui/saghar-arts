@@ -41,7 +41,7 @@ const MainLayout: React.FC = () => {
   const [isNewPurchaseModalOpen, setIsNewPurchaseModalOpen] = useState(false);
   const [isNewExpenseModalOpen, setIsNewExpenseModalOpen] = useState(false);
 
-  if (!isAuthenticated) {
+  if (!user || !isAuthenticated) {
     return <LoginScreen />;
   }
 

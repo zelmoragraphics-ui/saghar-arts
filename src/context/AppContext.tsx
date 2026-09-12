@@ -33,6 +33,7 @@ import {
 import { Language, getTranslation, translations } from '../utils/translations';
 
 interface AppContextType {
+  isAuthenticated: boolean;
   user: User | null;
   users: User[];
   settings: BusinessSettings;
@@ -758,6 +759,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   return (
     <AppContext.Provider
       value={{
+        isAuthenticated: !!user,
         user,
         users,
         settings,
